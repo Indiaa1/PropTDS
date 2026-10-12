@@ -16,7 +16,7 @@ export const Section234EGuide: React.FC<Section234EGuideProps> = ({ onGoToCalcul
           <span>Penalties & Late Fees</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-          Section 234E Late Filing Fee & Section 201(1A) Interest on Form 26QB
+          Section 234E Calculator – Form 26QB TDS Late Payment Interest & Fee
         </h1>
         <p className="text-sm text-slate-600 leading-relaxed">
           Statutory timelines, daily late fee calculations, maximum caps, and monthly interest charges under the Indian Income Tax Act.
@@ -30,14 +30,16 @@ export const Section234EGuide: React.FC<Section234EGuideProps> = ({ onGoToCalcul
             Depositing Form 26QB after the due date?
           </h2>
           <p className="text-xs text-amber-800 mt-0.5">
-            Use PropTDS to calculate your exact day-by-day fee and capped amount before making e-Pay Tax payment.
+            <a href="/" onClick={(e) => { e.preventDefault(); onGoToCalculator(); }} className="underline font-semibold hover:text-amber-950">
+              Use our Form 26QB calculator
+            </a> to compute your exact day-by-day late fee and interest before making payment on e-Pay Tax.
           </p>
         </div>
         <button
           onClick={onGoToCalculator}
           className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-amber-800 hover:bg-amber-900 rounded-lg transition-colors cursor-pointer shrink-0"
         >
-          <span>Calculate Penalty in Tool</span>
+          <span>Use our Form 26QB calculator</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
@@ -130,6 +132,25 @@ export const Section234EGuide: React.FC<Section234EGuideProps> = ({ onGoToCalcul
           <p>
             By computing and paying the exact Section 234E and Section 201(1A) amounts directly in the initial Form 26QB challan (e-Pay Tax), the challan processes with <strong>zero demand notice</strong>, avoiding subsequent penal proceedings or credit blocks on TRACES.
           </p>
+        </div>
+
+        {/* Internal Link Anchor Banner */}
+        <div className="p-5 bg-slate-900 text-white rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-6">
+          <div className="space-y-1">
+            <div className="font-bold text-sm text-white">Need to calculate your exact 26QB late fee and interest?</div>
+            <p className="text-xs text-slate-300">
+              Compute your statutory day-by-day liability with our{' '}
+              <a href="/" onClick={(e) => { e.preventDefault(); onGoToCalculator(); }} className="text-amber-400 font-semibold underline hover:text-amber-300">
+                TDS on property calculator
+              </a>.
+            </p>
+          </div>
+          <button
+            onClick={onGoToCalculator}
+            className="px-4 py-2 bg-amber-600 hover:bg-amber-500 rounded-lg text-xs font-semibold text-white cursor-pointer shrink-0"
+          >
+            Use our Form 26QB calculator
+          </button>
         </div>
       </section>
     </article>

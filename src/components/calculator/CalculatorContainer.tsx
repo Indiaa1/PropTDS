@@ -6,6 +6,7 @@ import { PartyShareSelector } from './PartyShareSelector';
 import { DateSelector } from './DateSelector';
 import { ResultsSummaryCard } from './ResultsSummaryCard';
 import { ChallanMatrixTable } from './ChallanMatrixTable';
+import { HowToFillForm26QBSection } from './HowToFillForm26QBSection';
 import { FaqAccordion } from '../common/FaqAccordion';
 import { RotateCcw, Share2, Sparkles, Check } from 'lucide-react';
 
@@ -301,6 +302,16 @@ export const CalculatorContainer: React.FC<CalculatorContainerProps> = ({ onOpen
 
   return (
     <div className="space-y-8">
+      {/* Hero Header Section */}
+      <div className="space-y-2 border-b border-slate-200/80 pb-4">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Form 26QB TDS on Property Calculator & Joint Split Tool
+        </h1>
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl">
+          An online utility to calculate TDS on property purchase (Section 194-IA), generate multi-party Form 26QB filing schedules, and calculate Section 234E late fee interest.
+        </p>
+      </div>
+
       {/* Top Banner / Scenarios Strip */}
       <div className="bg-slate-900 rounded-xl p-4 sm:p-5 border border-slate-800 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="space-y-1">
@@ -427,6 +438,11 @@ export const CalculatorContainer: React.FC<CalculatorContainerProps> = ({ onOpen
           result={result}
           onOpenPdfModal={onOpenPdfModal}
         />
+      </div>
+
+      {/* Dedicated On-Page Guide: How to Fill & File Form 26QB */}
+      <div className="pt-4">
+        <HowToFillForm26QBSection />
       </div>
 
       {/* Structured FAQ Section */}

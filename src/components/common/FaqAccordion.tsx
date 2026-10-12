@@ -13,6 +13,24 @@ export const FaqAccordion: React.FC = () => {
 
   const faqs: FaqItem[] = [
     {
+      category: 'penalties',
+      question: 'What is the statutory 26QB due date for property TDS deposit?',
+      answer:
+        'Under Section 194-IA, the 26QB due date is 30 calendar days from the end of the month in which tax was deducted. For example, if payment is made on 15th July, Form 26QB must be filed and deposited by 30th August.',
+    },
+    {
+      category: 'penalties',
+      question: 'How does the Section 234E calculator compute late filing fees?',
+      answer:
+        'The Section 234E fee is a mandatory penalty of ₹200 per day for every day of delay past the statutory 26QB due date. The maximum fee payable is capped at the total TDS amount for that transaction.',
+    },
+    {
+      category: 'joint-buyers',
+      question: 'How to calculate TDS on property with multiple co-owners?',
+      answer:
+        "When there are joint buyers or co-sellers, TDS (1%) is calculated on each co-owner's proportionate share of the higher of Agreement Value or Circle Rate. A separate Form 26QB must be filed for every unique buyer-seller combination.",
+    },
+    {
       category: 'applicability',
       question: 'When is TDS under Section 194-IA mandatory?',
       answer:
@@ -35,18 +53,6 @@ export const FaqAccordion: React.FC = () => {
       question: 'If 2 buyers buy a property for ₹60 Lakhs (₹30 Lakhs each), is TDS applicable?',
       answer:
         'Yes! Per landmark rulings (including Delhi High Court rulings) and ITD guidelines, the ₹50 Lakh threshold applies to the total value of the immovable property, not the fractional share of each individual buyer. Since the property value is ₹60 Lakhs (>= ₹50L), both co-buyers must deduct 1% on their respective ₹30 Lakh shares.',
-    },
-    {
-      category: 'penalties',
-      question: 'What is the statutory deadline to deposit Form 26QB TDS?',
-      answer:
-        'The deadline is 30 days from the end of the month in which the deduction is made. For example, if payment is made to the seller on 14th July, the month ends on 31st July, making the statutory due date 30th August.',
-    },
-    {
-      category: 'penalties',
-      question: 'How is the Section 234E late fee calculated?',
-      answer:
-        'A mandatory late fee of ₹200 per day is charged for each calendar day of delay past the due date. However, Section 234E(2) specifies that the total late fee cannot exceed the total amount of TDS deductible on that challan.',
     },
     {
       category: 'penalties',

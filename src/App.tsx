@@ -28,13 +28,13 @@ const TAB_TO_PATH: Record<ViewTab, string> = {
 };
 
 const TAB_TITLES: Record<ViewTab, string> = {
-  'calculator': 'PropTDS – Property TDS & Form 26QB Split Calculator (Section 194-IA)',
-  'guide-joint-buyers': 'Joint Buyers & Co-Sellers Form 26QB Guide – PropTDS',
-  'guide-234e': 'Section 234E Late Fee & 201(1A) Interest Calculation – PropTDS',
-  'efiling-guide': 'Step-by-Step e-Pay Tax Form 26QB Filing Guide – PropTDS',
-  'legal-disclaimer': 'Statutory Tax & Legal Disclaimer – PropTDS',
-  'legal-privacy': 'Privacy Policy & Zero Data Retention – PropTDS',
-  'legal-terms': 'Terms & Conditions of Use – PropTDS',
+  'calculator': 'Form 26QB Calculator & Filing Guide (TDS on Property & 234E Calculator) | PropTDS',
+  'guide-joint-buyers': 'How to File Form 26QB for Joint Buyers & Co-Owners | PropTDS',
+  'guide-234e': 'Section 234E Calculator – Form 26QB TDS Late Payment Interest & Fee | PropTDS',
+  'efiling-guide': 'Step-by-Step e-Pay Tax Form 26QB Filing Guide | PropTDS',
+  'legal-disclaimer': 'Statutory Tax & Legal Disclaimer | PropTDS',
+  'legal-privacy': 'Privacy Policy & Zero Data Retention | PropTDS',
+  'legal-terms': 'Terms & Conditions of Use | PropTDS',
 };
 
 function getTabFromPath(pathname: string): ViewTab {

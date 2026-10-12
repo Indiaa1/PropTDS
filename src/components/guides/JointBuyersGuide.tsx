@@ -16,7 +16,7 @@ export const JointBuyersGuide: React.FC<JointBuyersGuideProps> = ({ onLoadJointP
           <span>Section 194-IA</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-          Joint Buyers & Co-Sellers: Complete Form 26QB TDS Filing Guide
+          How to File Form 26QB for Joint Buyers & Co-Owners
         </h1>
         <p className="text-sm text-slate-600 leading-relaxed">
           How to correctly split and file Form 26QB when multiple buyers purchase property from multiple sellers under Indian Income Tax Act regulations.
@@ -30,14 +30,16 @@ export const JointBuyersGuide: React.FC<JointBuyersGuideProps> = ({ onLoadJointP
             Have a 2 Buyers × 2 Sellers transaction?
           </h2>
           <p className="text-xs text-emerald-800 mt-0.5">
-            Load our pre-configured joint purchase split preset into the calculator instantly.
+            <a href="/" onClick={(e) => { e.preventDefault(); onLoadJointPreset(); }} className="underline font-semibold hover:text-emerald-950">
+              Use our Form 26QB calculator
+            </a> with our pre-configured joint purchase split preset.
           </p>
         </div>
         <button
           onClick={onLoadJointPreset}
           className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-lg transition-colors cursor-pointer shrink-0"
         >
-          <span>Load 2×2 Joint Preset</span>
+          <span>Use our Form 26QB calculator</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
@@ -134,6 +136,25 @@ export const JointBuyersGuide: React.FC<JointBuyersGuideProps> = ({ onLoadJointP
               Section 194-IA applies exclusively when the seller is an Indian tax resident. If any co-seller is an NRI, their share is subject to Section 195 (requires TAN and 20%+ surcharge rates).
             </p>
           </div>
+        </div>
+
+        {/* Internal Link Anchor Banner */}
+        <div className="p-5 bg-slate-900 text-white rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-6">
+          <div className="space-y-1">
+            <div className="font-bold text-sm text-white">Need to compute your joint buyer challans?</div>
+            <p className="text-xs text-slate-300">
+              Run instant pair-wise calculations using our{' '}
+              <a href="/" onClick={(e) => { e.preventDefault(); onLoadJointPreset(); }} className="text-emerald-400 font-semibold underline hover:text-emerald-300">
+                TDS on property calculator
+              </a>.
+            </p>
+          </div>
+          <button
+            onClick={onLoadJointPreset}
+            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg text-xs font-semibold text-white cursor-pointer shrink-0"
+          >
+            Use our Form 26QB calculator
+          </button>
         </div>
       </section>
     </article>
