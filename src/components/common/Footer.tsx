@@ -46,10 +46,10 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
               <div className="w-6 h-6 rounded bg-emerald-600 flex items-center justify-center font-bold text-white text-xs">
                 ₹
               </div>
-              <span className="text-sm font-bold text-white">PropTDS (प्रॉपटीडीएस)</span>
+              <span className="text-sm font-bold text-white">PropTDS</span>
             </div>
             <p className="text-slate-400 leading-relaxed text-xs max-w-lg">
-              PropTDS is a specialized computational utility built for Indian property buyers, co-purchasers, deed writers (दस्तावेज़ लेखक), and tax professionals. It resolves multi-buyer and multi-seller Form 26QB splits, evaluates Circle Rate vs Agreement Value under Section 50C, and calculates statutory Section 234E late fees and Section 201(1A) interest.
+              PropTDS is a specialized computational utility built for Indian property buyers, co-purchasers, deed writers, and tax professionals. It resolves multi-buyer and multi-seller Form 26QB splits, evaluates Circle Rate vs Agreement Value under Section 50C, and calculates statutory Section 234E late fees and Section 201(1A) interest.
             </p>
             <div className="text-[11px] text-slate-500">
               Portal Reference: Income Tax e-Filing 2.0 (e-Pay Tax) & TRACES Form 16B Certificate System.
@@ -141,7 +141,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
 
         <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
           <div>
-            © {new Date().getFullYear()} PropTDS (प्रॉपटीडीएस). Built for transparent Indian real estate compliance.
+            © {new Date().getFullYear()} PropTDS. Built for transparent Indian real estate compliance.
           </div>
           <div className="flex items-center gap-4">
             <span>Serverless Edge Architecture</span>

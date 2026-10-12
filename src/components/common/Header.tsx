@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ViewTab } from '../../types/proptds';
 import { usePWAInstall } from '../../hooks/usePWAInstall';
-import { Download, ShieldCheck, HelpCircle, FileText, Calculator, BookOpen, Menu, X } from 'lucide-react';
+import { Download, HelpCircle, FileText, Calculator, BookOpen, Menu, X, Smartphone } from 'lucide-react';
 
 interface HeaderProps {
   currentTab: ViewTab;
@@ -9,9 +9,9 @@ interface HeaderProps {
   onOpenPdfModal?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenPdfModal }) => {
+export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
   const { isInstallable, install, isIOS } = usePWAInstall();
-  const [showIOSModal, setShowIOSModal] = useState(false);
+  const [showInstallGuideModal, setShowInstallGuideModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks: { id: ViewTab; label: string; icon: React.ReactNode }[] = [
@@ -21,11 +21,22 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
     { id: 'efiling-guide', label: 'e-Filing Guide', icon: <HelpCircle className="w-4 h-4" /> },
   ];
 
+  const handleInstallClick = () => {
+    if (isInstallable) {
+      install();
+    } else if (isIOS) {
+      setShowInstallGuideModal(true);
+    } else {
+      // If browser doesn't expose native beforeinstallprompt (e.g. desktop Chrome already installed or Firefox/Safari)
+      setShowInstallGuideModal(true);
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 bg-slate-900 border-b border-slate-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-3 sm:gap-6 lg:gap-8">
-          {/* Zone 1: Brand Wordmark (Single text element) */}
+          {/* Zone 1: Brand Wordmark */}
           <button
             onClick={() => {
               onSelectTab('calculator');
@@ -44,12 +55,12 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
                 </span>
               </div>
               <div className="text-[10px] sm:text-[11px] text-slate-400 leading-none">
-                प्रॉपटीडीएस · Form 26QB Split
+                Section 194-IA · Form 26QB Split
               </div>
             </div>
           </button>
 
-          {/* Zone 2: Nav Links (Clean single-line text links) */}
+          {/* Zone 2: Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
             {navLinks.map((link) => {
               const isActive = currentTab === link.id;
@@ -70,37 +81,17 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
             })}
           </nav>
 
-          {/* Zone 3: Primary Action & PWA Controls */}
+          {/* Zone 3: Install App Button in Top Navbar & Hamburger */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {isInstallable && (
-              <button
-                onClick={install}
-                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-300 bg-emerald-950/80 border border-emerald-700/60 rounded-md hover:bg-emerald-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-                title="Install offline PWA on your device"
-              >
-                <Download className="w-3.5 h-3.5" />
-                Install App
-              </button>
-            )}
-
-            {isIOS && !isInstallable && (
-              <button
-                onClick={() => setShowIOSModal(true)}
-                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 text-xs text-slate-300 bg-slate-800 rounded border border-slate-700 hover:bg-slate-700 whitespace-nowrap cursor-pointer"
-              >
-                Add to Home
-              </button>
-            )}
-
-            {onOpenPdfModal && (
-              <button
-                onClick={onOpenPdfModal}
-                className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 text-xs font-semibold text-slate-900 bg-emerald-400 hover:bg-emerald-300 active:bg-emerald-500 rounded-lg shadow-sm transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-              >
-                <Download className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Download Challan </span>PDF
-              </button>
-            )}
+            {/* Install App button in Navbar on both mobile and desktop */}
+            <button
+              onClick={handleInstallClick}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 rounded-lg shadow-sm transition-colors whitespace-nowrap cursor-pointer min-h-[36px]"
+              title="Install PropTDS on your device for instant offline access"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Install App</span>
+            </button>
 
             {/* Mobile menu trigger */}
             <button
@@ -113,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
           </div>
         </div>
 
-        {/* Mobile Navigation Dropdown */}
+        {/* Mobile Navigation Dropdown (Strictly Nav Links, No Duplicates) */}
         {mobileMenuOpen && (
           <div className="lg:hidden py-3 border-t border-slate-800 space-y-1">
             {navLinks.map((link) => (
@@ -133,66 +124,49 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
                 {link.label}
               </button>
             ))}
-
-            <div className="pt-2 border-t border-slate-800/80 space-y-1">
-              {isInstallable && (
-                <button
-                  onClick={() => {
-                    install();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-emerald-400 hover:bg-slate-800/60 rounded-md cursor-pointer min-h-[44px]"
-                >
-                  <Download className="w-4 h-4" />
-                  Install App (Offline PWA)
-                </button>
-              )}
-
-              {isIOS && (
-                <button
-                  onClick={() => {
-                    setShowIOSModal(true);
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-emerald-400 hover:bg-slate-800/60 rounded-md cursor-pointer min-h-[44px]"
-                >
-                  <Download className="w-4 h-4" />
-                  Add to Home Screen (iOS)
-                </button>
-              )}
-
-              {onOpenPdfModal && (
-                <button
-                  onClick={() => {
-                    onOpenPdfModal();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-slate-200 hover:bg-slate-800/60 rounded-md cursor-pointer min-h-[44px]"
-                >
-                  <FileText className="w-4 h-4" />
-                  Export Challan PDF Summary
-                </button>
-              )}
-            </div>
           </div>
         )}
       </div>
 
-      {/* iOS Safari Guide Modal */}
-      {showIOSModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="w-full max-w-sm rounded-xl bg-slate-900 border border-slate-700 p-6 text-white shadow-2xl">
-            <h3 className="text-base font-semibold">Install PropTDS on iOS</h3>
-            <p className="mt-2 text-xs text-slate-300 leading-relaxed">
-              1. Tap the <strong>Share</strong> button (box with upward arrow) in the Safari toolbar.<br />
-              2. Scroll down and tap <strong>Add to Home Screen</strong>.<br />
-              3. Tap <strong>Add</strong> in the top right. PropTDS will run 100% offline.
-            </p>
+      {/* Clean PWA Install Guide Modal */}
+      {showInstallGuideModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+          <div className="w-full max-w-sm rounded-xl bg-slate-900 border border-slate-700 p-5 text-white shadow-2xl space-y-4">
+            <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
+              <div className="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center font-bold text-white text-base shadow-sm ring-1 ring-emerald-400/30">
+                ₹
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-white">PropTDS</h3>
+                <p className="text-[11px] text-slate-400">Offline PWA App</p>
+              </div>
+            </div>
+
+            <div className="text-xs text-slate-300 leading-relaxed space-y-2">
+              <p className="font-semibold text-emerald-400 flex items-center gap-1.5">
+                <Smartphone className="w-3.5 h-3.5" />
+                How to install PropTDS:
+              </p>
+              {isIOS ? (
+                <ol className="list-decimal pl-4 space-y-1 text-slate-300">
+                  <li>Tap the <strong>Share</strong> button (box with upward arrow) in the Safari toolbar.</li>
+                  <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
+                  <li>Tap <strong>Add</strong> in the top right. PropTDS will launch as a native standalone app.</li>
+                </ol>
+              ) : (
+                <ol className="list-decimal pl-4 space-y-1 text-slate-300">
+                  <li>Tap the browser menu (three dots in Chrome / Edge).</li>
+                  <li>Select <strong>Install app</strong> or <strong>Add to Home screen</strong>.</li>
+                  <li>PropTDS will be added to your home screen or desktop.</li>
+                </ol>
+              )}
+            </div>
+
             <button
-              onClick={() => setShowIOSModal(false)}
-              className="mt-4 w-full rounded-lg bg-emerald-600 hover:bg-emerald-500 py-2 text-xs font-semibold text-white transition-colors cursor-pointer"
+              onClick={() => setShowInstallGuideModal(false)}
+              className="w-full rounded-lg bg-emerald-600 hover:bg-emerald-500 py-2.5 text-xs font-semibold text-white transition-colors cursor-pointer"
             >
-              Done
+              Close
             </button>
           </div>
         </div>

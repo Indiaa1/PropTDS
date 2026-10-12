@@ -127,10 +127,11 @@ export const ChallanMatrixTable: React.FC<ChallanMatrixTableProps> = ({
           <button
             type="button"
             onClick={onOpenPdfModal}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-lg shadow-2xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 rounded-lg shadow-sm transition-colors cursor-pointer min-h-[34px]"
+            title="Download formal A4 Form 26QB Challan Split Certificate PDF"
           >
             <Download className="w-3.5 h-3.5" />
-            Export Schedule PDF
+            Download Challan PDF
           </button>
         </div>
       </div>

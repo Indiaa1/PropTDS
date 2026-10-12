@@ -31,7 +31,7 @@ export const LegalPages: React.FC<LegalPagesProps> = ({ type, onBackToCalculator
 
           <div className="text-xs text-slate-700 leading-relaxed space-y-3">
             <div className="p-4 bg-amber-50 rounded-lg border border-amber-200 text-amber-950 font-medium">
-              PropTDS (प्रॉपटीडीएस) is an independent mathematical simulation and pre-filing validation utility. It does not provide Chartered Accountancy, legal, investment, or statutory tax advisory services.
+              PropTDS is an independent mathematical simulation and pre-filing validation utility. It does not provide Chartered Accountancy, legal, investment, or statutory tax advisory services.
             </div>
 
             <h2 className="text-sm font-bold text-slate-900 pt-2">No Government Affiliation</h2>

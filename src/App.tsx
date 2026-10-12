@@ -1,5 +1,5 @@
 /**
- * PropTDS (प्रॉपटीडीएस) - Property TDS & Form 26QB Split Calculator
+ * PropTDS - Property TDS & Form 26QB Split Calculator
  * @license Apache-2.0
  */
 
@@ -167,7 +167,6 @@ export default function App() {
       <Header
         currentTab={currentTab}
         onSelectTab={(tab) => handleSelectTab(tab)}
-        onOpenPdfModal={handleOpenPdfModal}
       />
 
       {/* Main Content Area */}
