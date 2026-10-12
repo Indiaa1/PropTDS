@@ -54,7 +54,7 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
             type="date"
             value={paymentDate}
             onChange={(e) => onChangePaymentDate(e.target.value)}
-            className="w-full px-3 py-2 text-xs font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+            className="w-full px-3 py-2 text-base sm:text-xs font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white min-h-[44px]"
           />
           <p className="text-[11px] text-slate-500">
             Selected: <span className="font-medium text-slate-700">{formatDateDisplay(paymentDate)}</span>
@@ -71,7 +71,7 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
             type="date"
             value={depositDate}
             onChange={(e) => onChangeDepositDate(e.target.value)}
-            className="w-full px-3 py-2 text-xs font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+            className="w-full px-3 py-2 text-base sm:text-xs font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white min-h-[44px]"
           />
           <p className="text-[11px] text-slate-500">
             Selected: <span className="font-medium text-slate-700">{formatDateDisplay(depositDate)}</span>

@@ -100,7 +100,7 @@ export const PropertyInputForm: React.FC<PropertyInputFormProps> = ({
               value={agreementValue || ''}
               onChange={(e) => onChangeAgreementValue(Math.max(0, Number(e.target.value)))}
               placeholder="e.g. 7500000"
-              className="w-full pl-8 pr-3 py-2.5 text-sm font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 tabular-nums"
+              className="w-full pl-8 pr-3 py-2.5 text-base sm:text-sm font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 tabular-nums min-h-[44px]"
             />
           </div>
           <p className="text-[11px] text-slate-500">
@@ -129,7 +129,7 @@ export const PropertyInputForm: React.FC<PropertyInputFormProps> = ({
               value={circleRateValue || ''}
               onChange={(e) => onChangeCircleRateValue(Math.max(0, Number(e.target.value)))}
               placeholder="e.g. 7500000"
-              className="w-full pl-8 pr-3 py-2.5 text-sm font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 tabular-nums"
+              className="w-full pl-8 pr-3 py-2.5 text-base sm:text-sm font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 tabular-nums min-h-[44px]"
             />
           </div>
           <p className="text-[11px] text-slate-500">
@@ -209,7 +209,7 @@ export const PropertyInputForm: React.FC<PropertyInputFormProps> = ({
                 value={installmentAmount || ''}
                 onChange={(e) => onChangeInstallmentAmount(Math.max(0, Number(e.target.value)))}
                 placeholder="e.g. 2000000"
-                className="w-full pl-8 pr-3 py-2 text-sm font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white tabular-nums"
+                className="w-full pl-8 pr-3 py-2.5 text-base sm:text-sm font-semibold text-slate-900 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white tabular-nums min-h-[44px]"
               />
             </div>
             <p className="text-[11px] text-slate-500">

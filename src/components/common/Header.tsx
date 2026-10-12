@@ -24,26 +24,26 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
   return (
     <header className="sticky top-0 z-40 bg-slate-900 border-b border-slate-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-8">
+        <div className="flex items-center justify-between h-16 gap-3 sm:gap-6 lg:gap-8">
           {/* Zone 1: Brand Wordmark (Single text element) */}
           <button
             onClick={() => {
               onSelectTab('calculator');
               setMobileMenuOpen(false);
             }}
-            className="flex items-center gap-2.5 text-left group cursor-pointer shrink-0"
+            className="flex items-center gap-2 sm:gap-2.5 text-left group cursor-pointer shrink-0"
           >
-            <div className="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center font-bold text-white shadow-sm ring-1 ring-emerald-400/30">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-emerald-600 flex items-center justify-center font-bold text-white shadow-sm ring-1 ring-emerald-400/30 text-sm sm:text-base">
               ₹
             </div>
             <div>
-              <div className="text-lg font-bold tracking-tight text-white flex items-center gap-1.5">
+              <div className="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-1.5">
                 PropTDS
-                <span className="text-[10px] font-normal uppercase tracking-wider text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800/60">
+                <span className="text-[10px] font-normal uppercase tracking-wider text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800/60 hidden xs:inline">
                   Sec 194-IA
                 </span>
               </div>
-              <div className="text-[11px] text-slate-400 leading-none">
+              <div className="text-[10px] sm:text-[11px] text-slate-400 leading-none">
                 प्रॉपटीडीएस · Form 26QB Split
               </div>
             </div>
@@ -71,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
           </nav>
 
           {/* Zone 3: Primary Action & PWA Controls */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {isInstallable && (
               <button
                 onClick={install}
@@ -95,17 +95,17 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
             {onOpenPdfModal && (
               <button
                 onClick={onOpenPdfModal}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-900 bg-emerald-400 hover:bg-emerald-300 active:bg-emerald-500 rounded-lg shadow-sm transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 text-xs font-semibold text-slate-900 bg-emerald-400 hover:bg-emerald-300 active:bg-emerald-500 rounded-lg shadow-sm transition-colors whitespace-nowrap shrink-0 cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5" />
-                Download Challan PDF
+                <span className="hidden sm:inline">Download Challan </span>PDF
               </button>
             )}
 
             {/* Mobile menu trigger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-400 hover:text-white rounded-md cursor-pointer"
+              className="lg:hidden p-2 text-slate-400 hover:text-white rounded-md cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -123,7 +123,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
                   onSelectTab(link.id);
                   setMobileMenuOpen(false);
                 }}
-                className={`w-full flex items-center gap-2.5 px-3 py-2 text-sm rounded-md text-left ${
+                className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-sm rounded-md text-left cursor-pointer min-h-[44px] ${
                   currentTab === link.id
                     ? 'bg-slate-800 text-emerald-400 font-semibold'
                     : 'text-slate-300 hover:bg-slate-800/60'
@@ -133,18 +133,47 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab, onOpenP
                 {link.label}
               </button>
             ))}
-            {isInstallable && (
-              <button
-                onClick={() => {
-                  install();
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full flex items-center gap-2 px-3 py-2 text-sm text-emerald-400 hover:bg-slate-800/60 rounded-md"
-              >
-                <Download className="w-4 h-4" />
-                Install App to Home Screen
-              </button>
-            )}
+
+            <div className="pt-2 border-t border-slate-800/80 space-y-1">
+              {isInstallable && (
+                <button
+                  onClick={() => {
+                    install();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-emerald-400 hover:bg-slate-800/60 rounded-md cursor-pointer min-h-[44px]"
+                >
+                  <Download className="w-4 h-4" />
+                  Install App (Offline PWA)
+                </button>
+              )}
+
+              {isIOS && (
+                <button
+                  onClick={() => {
+                    setShowIOSModal(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-emerald-400 hover:bg-slate-800/60 rounded-md cursor-pointer min-h-[44px]"
+                >
+                  <Download className="w-4 h-4" />
+                  Add to Home Screen (iOS)
+                </button>
+              )}
+
+              {onOpenPdfModal && (
+                <button
+                  onClick={() => {
+                    onOpenPdfModal();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-slate-200 hover:bg-slate-800/60 rounded-md cursor-pointer min-h-[44px]"
+                >
+                  <FileText className="w-4 h-4" />
+                  Export Challan PDF Summary
+                </button>
+              )}
+            </div>
           </div>
         )}
       </div>

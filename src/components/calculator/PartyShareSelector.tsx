@@ -115,10 +115,10 @@ export const PartyShareSelector: React.FC<PartyShareSelectorProps> = ({
                       value={buyer.name}
                       onChange={(e) => onUpdateBuyer(idx, { name: e.target.value })}
                       placeholder={`Buyer ${idx + 1}`}
-                      className="flex-1 text-xs font-semibold text-slate-800 px-2.5 py-1.5 border border-slate-200 rounded focus:ring-1 focus:ring-emerald-500 focus:outline-none"
+                      className="flex-1 text-base sm:text-xs font-semibold text-slate-800 px-2.5 py-2 sm:py-1.5 border border-slate-200 rounded-lg focus:ring-1 focus:ring-emerald-500 focus:outline-none min-h-[40px] sm:min-h-0"
                     />
 
-                    <div className="relative w-28">
+                    <div className="relative w-24 sm:w-28">
                       <input
                         type="number"
                         min="1"
@@ -128,7 +128,7 @@ export const PartyShareSelector: React.FC<PartyShareSelectorProps> = ({
                         onChange={(e) =>
                           onUpdateBuyer(idx, { sharePercentage: parseFloat(e.target.value) || 0 })
                         }
-                        className="w-full text-xs font-semibold text-right pr-6 pl-2 py-1.5 border border-slate-200 rounded focus:ring-1 focus:ring-emerald-500 focus:outline-none tabular-nums"
+                        className="w-full text-base sm:text-xs font-semibold text-right pr-6 pl-2 py-2 sm:py-1.5 border border-slate-200 rounded-lg focus:ring-1 focus:ring-emerald-500 focus:outline-none tabular-nums min-h-[40px] sm:min-h-0"
                       />
                       <span className="absolute inset-y-0 right-2 flex items-center text-xs font-medium text-slate-400 pointer-events-none">
                         %
@@ -139,10 +139,10 @@ export const PartyShareSelector: React.FC<PartyShareSelectorProps> = ({
                       <button
                         type="button"
                         onClick={() => onRemoveBuyer(idx)}
-                        className="p-1.5 text-slate-400 hover:text-rose-600 rounded hover:bg-rose-50 transition-colors cursor-pointer"
+                        className="p-2 sm:p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition-colors cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
                         title="Remove buyer"
                       >
-                        <Trash2 className="w-3.5 h-3.5" />
+                        <Trash2 className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
                       </button>
                     )}
                   </div>
@@ -241,10 +241,10 @@ export const PartyShareSelector: React.FC<PartyShareSelectorProps> = ({
                       value={seller.name}
                       onChange={(e) => onUpdateSeller(idx, { name: e.target.value })}
                       placeholder={`Seller ${idx + 1}`}
-                      className="flex-1 text-xs font-semibold text-slate-800 px-2.5 py-1.5 border border-slate-200 rounded focus:ring-1 focus:ring-emerald-500 focus:outline-none"
+                      className="flex-1 text-base sm:text-xs font-semibold text-slate-800 px-2.5 py-2 sm:py-1.5 border border-slate-200 rounded-lg focus:ring-1 focus:ring-emerald-500 focus:outline-none min-h-[40px] sm:min-h-0"
                     />
 
-                    <div className="relative w-28">
+                    <div className="relative w-24 sm:w-28">
                       <input
                         type="number"
                         min="1"
@@ -254,7 +254,7 @@ export const PartyShareSelector: React.FC<PartyShareSelectorProps> = ({
                         onChange={(e) =>
                           onUpdateSeller(idx, { sharePercentage: parseFloat(e.target.value) || 0 })
                         }
-                        className="w-full text-xs font-semibold text-right pr-6 pl-2 py-1.5 border border-slate-200 rounded focus:ring-1 focus:ring-emerald-500 focus:outline-none tabular-nums"
+                        className="w-full text-base sm:text-xs font-semibold text-right pr-6 pl-2 py-2 sm:py-1.5 border border-slate-200 rounded-lg focus:ring-1 focus:ring-emerald-500 focus:outline-none tabular-nums min-h-[40px] sm:min-h-0"
                       />
                       <span className="absolute inset-y-0 right-2 flex items-center text-xs font-medium text-slate-400 pointer-events-none">
                         %
@@ -265,10 +265,10 @@ export const PartyShareSelector: React.FC<PartyShareSelectorProps> = ({
                       <button
                         type="button"
                         onClick={() => onRemoveSeller(idx)}
-                        className="p-1.5 text-slate-400 hover:text-rose-600 rounded hover:bg-rose-50 transition-colors cursor-pointer"
+                        className="p-2 sm:p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition-colors cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
                         title="Remove seller"
                       >
-                        <Trash2 className="w-3.5 h-3.5" />
+                        <Trash2 className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
                       </button>
                     )}
                   </div>
