@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://proptds.fsite.workers.dev/sitemap.xml

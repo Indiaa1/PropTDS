@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PropTDS – Property TDS & Form 26QB Split Calculator (Section 194-IA)</title>
+    <meta
+      name="description"
+      content="Calculate Section 194-IA (Form 26QB) property TDS for joint buyers and sellers. Instant multi-party splits, circle rate evaluation, and Section 234E late fees."
+    />
+    <meta name="google-site-verification" content="O-cwM9ZbFyQTKNhBrz5rAwGtTt0IfJTbesgGLxEwL6U" />
+    <link rel="canonical" href="https://proptds.fsite.workers.dev/" />
+
+    <!-- OpenGraph Social Cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PropTDS" />
+    <meta property="og:title" content="PropTDS – Property TDS & Form 26QB Split Calculator" />
+    <meta
+      property="og:description"
+      content="Zero-math Section 194-IA property TDS calculator for Indian real estate buyers. Accurate co-owner splits, circle rate vs agreement valuation, and statutory late fees."
+    />
+    <meta property="og:url" content="https://proptds.fsite.workers.dev/" />
+    <meta property="og:image" content="https://proptds.fsite.workers.dev/pwa-512x512.png" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PropTDS – Property TDS & Form 26QB Split Calculator" />
+    <meta
+      name="twitter:description"
+      content="Zero-math Section 194-IA property TDS calculator for Indian real estate buyers. Multi-party splits, circle rate evaluation, and late fees."
+    />
+    <meta name="twitter:image" content="https://proptds.fsite.workers.dev/pwa-512x512.png" />
+
+    <!-- Application Brand & PWA Meta -->
+    <meta name="application-name" content="PropTDS" />
+    <meta name="theme-color" content="#0F172A" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="PropTDS" />
+
+    <!-- Favicon & Brand Icons for Google Search & Browsers -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/pwa-512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Typography: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Search Site Name (WebSite Structured Data) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PropTDS",
+        "alternateName": ["Prop TDS", "PropTDS Calculator"],
+        "url": "https://proptds.fsite.workers.dev"
+      }
+    </script>
+
+    <!-- Schema.org Application & FAQ Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "@id": "https://proptds.fsite.workers.dev/#app",
+            "name": "PropTDS",
+            "alternateName": "प्रॉपटीडीएस",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "url": "https://proptds.fsite.workers.dev/",
+            "image": "https://proptds.fsite.workers.dev/pwa-512x512.png",
+            "description": "Zero-math Section 194-IA Form 26QB property TDS calculator. Resolves multi-party co-owner splits, circle rate valuation, Section 234E late fees, and Section 201(1A) interest.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "INR"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://proptds.fsite.workers.dev/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "When is TDS under Section 194-IA mandatory?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "TDS under Section 194-IA is mandatory whenever a resident buyer purchases immovable property (other than agricultural land) worth ₹50,00,000 or more. The statutory deduction rate is 1% of the higher of the Agreement Value or the Stamp Duty Value (Circle Rate)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do joint buyers and co-sellers need separate Form 26QB filings?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. A distinct Form 26QB must be filed for every unique buyer-seller pair (N_buyers × N_sellers). For instance, 2 buyers purchasing from 2 sellers requires exactly 4 distinct challan filings."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the penalty for late filing of Form 26QB?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Under Section 234E, a late filing fee of ₹200 per day is levied for each day of delay beyond 30 days from the end of the transaction month, capped at the total TDS amount. Additionally, simple interest is charged at 1.5% per month or part of a month under Section 201(1A)."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "HowTo",
+            "@id": "https://proptds.fsite.workers.dev/#howto",
+            "name": "How to Calculate and Split Form 26QB TDS for Joint Property Owners",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Determine Higher Valuation",
+                "text": "Compare Agreement Consideration against the Circle Rate / Stamp Duty valuation. TDS is computed on the higher value."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Calculate Pair-Wise Fractional Shares",
+                "text": "Multiply each buyer's percentage share by each seller's percentage share to obtain the pair factor (F_ij)."
+              },
+              {
+                "@type": "HowToStep",
+                "name": "File Form 26QB on Income Tax Portal",
+                "text": "Submit distinct Form 26QB challans on e-Pay Tax for each pair and remit 1% TDS."
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

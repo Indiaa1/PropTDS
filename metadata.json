@@ -1,0 +1,6 @@
+{
+  "name": "PropTDS - Property TDS & Form 26QB Split Calculator",
+  "description": "Statutory Section 194-IA (Form 26QB) property TDS calculator. Accurate multi-party co-owner splits, circle rate evaluation, Section 234E late fee, and Section 201(1A) interest.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
