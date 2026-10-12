@@ -6,9 +6,25 @@
   Content-Type: text/plain; charset=UTF-8
   Cache-Control: public, max-age=86400
 
+/manifest.json
+  Content-Type: application/manifest+json; charset=UTF-8
+  Cache-Control: public, max-age=86400
+
 /manifest.webmanifest
   Content-Type: application/manifest+json; charset=UTF-8
   Cache-Control: public, max-age=86400
+
+/favicon.ico
+  Content-Type: image/x-icon
+  Cache-Control: public, max-age=604800, immutable
+
+/icon.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=604800, immutable
+
+/apple-touch-icon.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=604800, immutable
 
 /*
   X-Content-Type-Options: nosniff
