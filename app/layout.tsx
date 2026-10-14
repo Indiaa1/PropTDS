@@ -44,13 +44,18 @@ export default function RootLayout({
         <meta name="google-site-verification" content="O-cwM9ZbFyQTKNhBrz5rAwGtTt0IfJTbesgGLxEwL6U" />
         <link rel="canonical" href="https://proptds.fsite.workers.dev/" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Explicit Site Name Meta Tags */}
+        <meta name="application-name" content="PropTDS" />
+        <meta property="og:site_name" content="PropTDS" />
+
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png" />
         <link rel="icon" type="image/png" sizes="192x192" href="/icon.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="/icon.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <meta property="og:site_name" content="PropTDS" />
+        <link rel="shortcut icon" href="/favicon.ico" />
 
-        {/* Google Search Site Name (WebSite Structured Data) */}
+        {/* WebSite Schema with Explicit Site Name */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -58,8 +63,8 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               name: 'PropTDS',
-              alternateName: 'PropTDS - Property TDS Calculator',
-              url: 'https://proptds.fsite.workers.dev',
+              alternateName: ['PropTDS Calculator', 'Prop TDS'],
+              url: 'https://proptds.fsite.workers.dev/',
             }),
           }}
         />
